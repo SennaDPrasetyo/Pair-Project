@@ -1,0 +1,25 @@
+{
+  "name": "pair-project",
+  "version": "1.0.0",
+  "description": "Pair-Project Phase 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SennaDPrasetyo/Pair-Project.git"
+  },
+  "keywords": [],
+  "author": "Senna Dwi Prasetyo, Tiansyah Muhammad Salman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SennaDPrasetyo/Pair-Project/issues"
+  },
+  "homepage": "https://github.com/SennaDPrasetyo/Pair-Project#readme",
+  "dependencies": {
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  }
+}
