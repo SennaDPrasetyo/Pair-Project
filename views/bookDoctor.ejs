@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Hi <%= dataPatient.patientName %>!</h1>
-    <h3>Saya <%= dataDoctor.generateDrName(dataDoctor.doctorName) %> </h3>
+    <h3>Saya <%= dataDoctor.generateDrName() %> </h3>
     <p>Sebelum saya periksa, harap isi terlebih dahulu keluhan dan fotonya jika perlu ya!!!</p>
     
     <form action="/patients/<%= dataPatient.id %>/book/<%= dataDoctor.id %>" method="POST" enctype="multipart/form-data" >

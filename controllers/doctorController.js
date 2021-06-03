@@ -48,7 +48,7 @@ class Controller {
             include: [Patient]
         })
         .then((result) => {
-            res.render('listPatients', { result, convertUmur })
+            res.render('listPatients', { result, convertUmur, patient: Patient })
         })
         .catch((err) => {
             res.send(err)

@@ -7,6 +7,7 @@
     <title>List Doctor</title>
 </head>
 <body>
+  <h1>List Doctor</h1>
     <table border>
       <tr>
         <th>Doctor Name</th>
@@ -15,13 +16,14 @@
       </tr>
       <% data.forEach(e => { %>
         <tr>
-          <td><%= e.generateDrName(e.doctorName) %></td>
+          <td><%= e.generateDrName() %></td>
           <td><%= e.schedule %></td>
           <td><a href="/patients/<%= idPatient %>/book/<%= e.id %>"> Book </a></td>
         </tr>
       <% }); %>
     </table>
     <br>
-    <a href="/patients/<%= idPatient %>/process"> Liat resep </a>
+    <a href="/patients/<%= idPatient %>/process"> Liat resep </a> <hr>
+    <a href="/patients/logout"> Logout </a>
 </body>
 </html>

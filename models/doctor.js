@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Doctor.belongsToMany(models.Patient, { through: 'Reservation' })
     }
-    generateDrName(doctorName){
-      return `Dr. ${doctorName}`
+    generateDrName(){
+      if(this.doctorName) {
+        return `Dr. ${this.doctorName}`
+      }
     }
   };
   Doctor.init({

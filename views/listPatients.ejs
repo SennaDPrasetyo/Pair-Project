@@ -23,10 +23,10 @@
             <% if (!element.Reservation.prescription){ %>
                 <tr>
                     <td><%= ++index %></td>
-                    <td><%= element.patientName %></td>
+                    <td><%= patient.nameUpperCase(element.patientName) %></td>
                     <td><%= convertUmur(element.age) %></td>
                     <td><%= element.Reservation.symptom %></td>
-                    <td><img src="/<%= element.Reservation.photo %>" alt=""></td>
+                    <td><img src="/<%= element.Reservation.photo %>" alt="" style="width:200px;height:160px;"></td>
                     <% if (!element.Reservation.status){ %>
                         <td><button><a href="/doctors/accept/<%= element.Reservation.PatientId %>/<%= element.Reservation.DoctorId %>">Accept</a></button> || <button><a href="/doctors/reject/<%= element.Reservation.PatientId %>/<%= element.Reservation.DoctorId %>">Reject</a></button></td>
                     <% } else { %>

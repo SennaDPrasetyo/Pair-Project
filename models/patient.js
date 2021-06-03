@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Patient.belongsToMany(models.Doctor, { through: 'Reservation' })
     }
+
+    static nameUpperCase(name) {
+      return name.toUpperCase()
+    }
   };
   Patient.init({
     patientName: DataTypes.STRING,

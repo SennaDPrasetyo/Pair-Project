@@ -2,6 +2,11 @@ const {Doctor, Patient, Reservation} = require('../models');
 
 class Controller {
 
+    static logout(req,res) {
+        req.session.patientLoginCheck = undefined
+        res.redirect('/patients/login')
+    }
+    
     static loginGet(req,res) {
         res.render('login', {err: req.query.error})
     }
@@ -123,6 +128,24 @@ class Controller {
         })
         .then(data => {
             res.render('process', {data})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static deleteProcess(req,res) {
+        let DoctorId = req.params.DoctorId
+        let PatientId = req.params.PatientId
+
+        Reservation.destroy({
+            where: {
+                DoctorId: DoctorId,
+                PatientId: PatientId
+            }
+        })
+        .then(() => {
+            res.redirect(`/patients/${PatientId}/process`)
         })
         .catch(err => {
             res.send(err)

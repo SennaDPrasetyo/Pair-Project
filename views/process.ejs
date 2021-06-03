@@ -7,11 +7,27 @@
     <title>Process</title>
 </head>
 <body>
+    <% if(data.Doctors.length === 0) { %>
+        <h1>Belum Booking</h1>
+    <% }%>
+
     <% data.Doctors.forEach(e => { %>
         <% if (e.Reservation.status === false && e.Reservation.prescription === null) { %>
-            <h1>Sedang diperiksa</h1>
+            <h3>Sedang diperiksa</h3>
+            <p> Mohon tunggu ya, sedang di periksa oleh <%= e.generateDrName(e.doctorName) %></p> <hr>
         <% } else { %>
-            <p><%= e.Reservation.prescription %></p>
+            <table border="1">
+                <tr>
+                    <th>Nama Dokter</th>
+                    <th>Resep</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <th><%= e.doctorName %></th>
+                    <th><%= e.Reservation.prescription %></th>
+                    <td><a href="/patients/<%= data.id %>/process/delete/<%= data.id %>/<%= e.Reservation.DoctorId %>"> Selesai </a></td>
+                </tr>
+            </table> <hr>
         <% } %>
     <% }); %>
 
