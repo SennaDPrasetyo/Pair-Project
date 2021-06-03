@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients List</title>
+</head>
+<body>
+    <a href="/doctors/logout">logout</a>
+    <br><br>
+    <% doctorResult.forEach((element) => { %>
+        <h2><%= element.doctorName %> Patients List</h2>
+        <table border="1">
+            <tr>
+                <th>No.</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Symptom</th>
+                <th>Photo</th>
+                <th>Action</th>
+            </tr>
+        <% result.forEach((e, index) => { %>
+            <tr>
+                <td><%= ++index %></td>
+                <td><%= e.Patient.patientName %></td>
+                <td><%= e.Patient.age %></td>
+                <td><%= e.symptom %></td>
+                <td><%= e.photo %></td>
+                <% if (!e.status){ %>
+                    <td><button><a href="/doctors/accept/<%= e.PatientId %>">Accept</a></button> || <button><a href="/doctors/reject/<%= e.PatientId %>/<%= element.id %>">Reject</a></button></td>
+                <% } else { %>
+                    <td><button><a href="/doctors/prescription/<%= e.PatientId %>/<%= element.id %>">Prescription</a></button>
+                <% } %>
+            </tr>
+        <% }) %>
+    <% }) %>
+    </table>
+</body>
+</html>
