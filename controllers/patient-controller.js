@@ -65,7 +65,6 @@ class Controller {
 
     static showListDoctor(req,res) {
         let idPatient = req.params.patientId
-        console.log(idPatient);
         Doctor.findAll()
         .then(data => {
             res.render('listDoctor', {data, idPatient})

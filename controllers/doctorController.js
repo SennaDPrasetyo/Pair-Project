@@ -1,4 +1,5 @@
 const { Doctor, Patient, Reservation } = require('../models')
+const convertUmur = require('../helpers/convertUmur')
 
 class Controller {
     static getLogin(req, res){
@@ -43,52 +44,28 @@ class Controller {
         }
     }
     static getId(req, res){
-        let doctorResult = []
-
-        Doctor.findAll({
-            where: {
-                id: +req.params.DoctorId
-            }
+        Doctor.findByPk(+req.params.DoctorId, {
+            include: [Patient]
         })
         .then((result) => {
-            doctorResult = result
-            
-            return Reservation.findAll({
-                include: Patient,
-                where: {
-                    DoctorId: +req.params.DoctorId,
-                    prescription: null
-                }
-            })
-        })
-        .then((result) => {
-            res.render('listPatients', { doctorResult, result })
+            res.render('listPatients', { result, convertUmur })
         })
         .catch((err) => {
             res.send(err)
         })
     }
     static getAccept(req, res){
-        console.log(req.params)
         const input = {
             status: true
         }
         Reservation.update(input, {
             where: {
-                PatientId: +req.params.PatientId
+                PatientId: +req.params.PatientId,
+                DoctorId: +req.params.DoctorId
             }
         })
         .then((result) => {
-            return Reservation.findAll({
-                where: {
-                    PatientId: +req.params.PatientId
-                }
-            })
-        })
-        .then((result) => {
-            result.forEach((element) => {
-                res.redirect(`/doctors/${element.DoctorId}`)
-            })
+            res.redirect(`/doctors/${+req.params.DoctorId}`)
         })
         .catch((err) => {
             res.send(err)
@@ -108,27 +85,9 @@ class Controller {
         })
     }
     static getPres(req, res){
-        console.log(req.params)
-        Patient.findAll({
-            include: Doctor,
-            where: {
-                id: +req.params.PatientId
-            }
-        })
-        .then((result) => {
-            let PatientId = 0
-            let DoctorId = 0
-            result.forEach((element) => {
-                PatientId = element.id
-                element.Doctors.forEach((e) => {
-                    DoctorId = e.id
-                    res.render('prescription', { PatientId, DoctorId })
-                })
-            })
-        })
-        .catch((err) => {
-            res.send(err)
-        })
+        let DoctorId = req.params.DoctorId
+        let PatientId = req.params.PatientId
+        res.render('prescription', { DoctorId, PatientId })
     }
     static postPres(req, res){
         const input = {
@@ -136,7 +95,8 @@ class Controller {
         }
         Reservation.update(input, {
             where: {
-                PatientId: +req.params.PatientId
+                PatientId: +req.params.PatientId,
+                DoctorId: +req.params.DoctorId
             }
         })
         .then((result) => {

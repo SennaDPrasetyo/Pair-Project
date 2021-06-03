@@ -15,7 +15,7 @@
       </tr>
       <% data.forEach(e => { %>
         <tr>
-          <td><%= e.doctorName %></td>
+          <td><%= e.generateDrName(e.doctorName) %></td>
           <td><%= e.schedule %></td>
           <td><a href="/patients/<%= idPatient %>/book/<%= e.id %>"> Book </a></td>
         </tr>

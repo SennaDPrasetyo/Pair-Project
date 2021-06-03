@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Doctor.belongsToMany(models.Patient, { through: 'Reservation' })
     }
+    generateDrName(doctorName){
+      return `Dr. ${doctorName}`
+    }
   };
   Doctor.init({
     doctorName: DataTypes.STRING,
