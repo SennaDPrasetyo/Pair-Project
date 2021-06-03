@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Doctor</title>
+</head>
+<body>
+    <h1>Hi <%= dataPatient.patientName %>!</h1>
+    <h3>Saya <%= dataDoctor.doctorName %> </h3>
+    <p>Sebelum saya periksa, harap isi terlebih dahulu keluhan dan fotonya jika perlu ya!!!</p>
+    
+    <form action="/patients/<%= dataPatient.id %>/book/<%= dataDoctor.id %>" method="POST" enctype="multipart/form-data" >
+        <label for="">Keluhan</label> <br>
+        <input type="text" name="symptom" id=""> <br>
+        <label for="">Foto</label> <br>
+        <input type="file" name="photo" id=""> <br> <br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+</html>
