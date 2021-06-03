@@ -18,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
   Reservation.init({
     DoctorId: DataTypes.INTEGER,
     PatientId: DataTypes.INTEGER,
-    prescription: DataTypes.STRING,
     status: DataTypes.BOOLEAN,
+    prescription: DataTypes.STRING,
     symptom: DataTypes.STRING,
-    photo: DataTypes.BLOB
+    photo: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Reservation',
