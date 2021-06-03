@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeBulkUpdate: (instance) => {
         if (instance.attributes.prescription){
-          instance.attributes.prescription = `Obat ${instance.attributes.prescription.toLowerCase()} 2x sehari`
+          instance.attributes.prescription = `HARUS SESUAI: ${instance.attributes.prescription.toLowerCase()}`
         }
       }
     }
