@@ -26,7 +26,7 @@
                 <td><%= e.Patient.patientName %></td>
                 <td><%= e.Patient.age %></td>
                 <td><%= e.symptom %></td>
-                <td><%= e.photo %></td>
+                <td><img src="/<%= e.photo %>" alt=""></td>
                 <% if (!e.status){ %>
                     <td><button><a href="/doctors/accept/<%= e.PatientId %>">Accept</a></button> || <button><a href="/doctors/reject/<%= e.PatientId %>/<%= element.id %>">Reject</a></button></td>
                 <% } else { %>

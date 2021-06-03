@@ -3,24 +3,18 @@
         "doctorName": "Budi Supratman",
         "email": "budi@mail.com",
         "doctorPassword": "budi1234",
-        "schedule": "13.00 - 15.00",
-        "status": false,
-        "prescription": null
+        "schedule": "13.00 - 15.00"
     },
     {
         "doctorName": "Alex Kodir",
         "email": "alex@mail.com",
         "doctorPassword": "A09876",
-        "schedule": "10.00 - 12.00",
-        "status": false,
-        "prescription": null
+        "schedule": "10.00 - 12.00"
     },
     {
         "doctorName": "John Dirgantara",
         "email": "john@mail.com",
         "doctorPassword": "J1234567",
-        "schedule": "08.00 - 10.00",
-        "status": false,
-        "prescription": null
+        "schedule": "08.00 - 10.00"
     }
 ]
