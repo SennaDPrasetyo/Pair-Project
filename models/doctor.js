@@ -11,13 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Doctor.belongsToMany(models.Patient, { through: 'Reservation' })
     }
   };
   Doctor.init({
     doctorName: DataTypes.STRING,
     email: DataTypes.STRING,
     doctorPassword: DataTypes.STRING,
-    schedule: DataTypes.STRING
+    schedule: DataTypes.STRING,
+    status: DataTypes.BOOLEAN,
+    prescription: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Doctor',

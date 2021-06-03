@@ -20,6 +20,12 @@ module.exports = {
       schedule: {
         type: Sequelize.STRING
       },
+      status: {
+        type: Sequelize.BOOLEAN
+      },
+      prescription: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
