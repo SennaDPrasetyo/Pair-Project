@@ -16,11 +16,23 @@ module.exports = (sequelize, DataTypes) => {
   };
   Doctor.init({
     doctorName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    doctorPassword: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Email cannot be empty!'
+        }
+      }
+    },
+    doctorPassword: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Password cannot be empty!'
+        }
+      }
+    },
     schedule: DataTypes.STRING,
-    status: DataTypes.BOOLEAN,
-    prescription: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Doctor',
