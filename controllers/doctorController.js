@@ -64,7 +64,7 @@ class Controller {
                 DoctorId: +req.params.DoctorId
             }
         })
-        .then((result) => {
+        .then(() => {
             res.redirect(`/doctors/${+req.params.DoctorId}`)
         })
         .catch((err) => {
@@ -77,7 +77,7 @@ class Controller {
                 PatientId: +req.params.PatientId
             }
         })
-        .then((result) => {
+        .then(() => {
             res.redirect(`/doctors/${+req.params.DoctorId}`)
         })
         .catch((err) => {
@@ -99,7 +99,7 @@ class Controller {
                 DoctorId: +req.params.DoctorId
             }
         })
-        .then((result) => {
+        .then(() => {
             res.redirect(`/doctors/${+req.params.DoctorId}`)
         })
         .catch((err) => {
